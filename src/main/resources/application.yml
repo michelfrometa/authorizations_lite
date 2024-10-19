@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: authorizer
+  profiles:
+    active: local
+    
+server:
+  servlet:
+    context-path: /api
