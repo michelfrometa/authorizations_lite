@@ -24,3 +24,7 @@ By choosing Clean Architecture, I accept the additional complexity it introduces
 # Database selection
 
 Given that I am building a financial transaction system (even though it's a mini-project), SQL would likely be the better option due to its strong support for consistency, transactions, and concurrency control, which are crucial for handling money and balances. I am going to use MySQL as the database for this project.
+
+# Entity design
+
+![Entity Relationship Diagram](EntityRelationshipDiagram.jpg)
