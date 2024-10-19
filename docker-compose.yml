@@ -1,12 +1,12 @@
 version: "3.7"
 
 services:
-  app:
+  application:
     image: 'test-authorizer-spring-boot-mysql:latest'
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: app
+    container_name: application
     depends_on:
       mysql:
         condition: service_healthy
@@ -19,7 +19,10 @@ services:
       SPRING_DATASOURCE_PASSWORD:
       SPRING_JPA_HIBERNATE_DDL_AUTO: update      
     ports:
-      - ${LOCAL_PORT}:${DOCKER_PORT}
+#      - ${LOCAL_PORT}:${DOCKER_PORT}
+      - "8025:8080"
+    env_file:
+      - .env.docker
     networks:
       - springboot-mysql-network
 
@@ -30,14 +33,15 @@ services:
     restart: always
     ports:
       - "3306:${MYSQL_DATABASE_PORT}"
+#      - "3306:3306"
     environment:
       MYSQL_DATABASE: miniautorizador
       MYSQL_ROOT_PASSWORD:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    volumes:
-      - type: volume
-        source: mysql-data
-        target: /var/lib/mysql
+#    volumes:
+#      - type: volume
+#        source: mysql-data
+#       target: /var/lib/mysql
     networks:
       - springboot-mysql-network
     healthcheck:
@@ -45,11 +49,12 @@ services:
       retries: 10
       interval: 3s
       timeout: 30s
-volumes:
-  mysql-data:
+#volumes:
+#  mysql-data:
 networks:
   springboot-mysql-network:
     name: springboot-mysql-network      
+    driver: bridge
 
   # mongo:
   #   image: mongo:4.2
