@@ -12,7 +12,7 @@ class TestcontainersConfiguration {
 	@Bean
 	@ServiceConnection
 	MySQLContainer<?> mysqlContainer() {
-		return new MySQLContainer<>(DockerImageName.parse("mysql:5.7"));
+		return new MySQLContainer<>(DockerImageName.parse("mysql:5.7")); // TODO Externalize the mysql version to use the same everywhere
 	}
 
 }
