@@ -1,4 +1,4 @@
-package com.test.authorizer;
+package com.test.authorizer.config;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
@@ -12,7 +12,9 @@ class TestcontainersConfiguration {
 	@Bean
 	@ServiceConnection
 	MySQLContainer<?> mysqlContainer() {
-		return new MySQLContainer<>(DockerImageName.parse("mysql:5.7")); // TODO Externalize the mysql version to use the same everywhere
+		return new MySQLContainer<>(DockerImageName.parse("mysql:5.7")) // TODO Externalize the mysql version to use the
+																		// same everywhere
+				.withReuse(true);
 	}
 
 }
