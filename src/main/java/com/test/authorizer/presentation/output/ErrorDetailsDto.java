@@ -1,27 +1,23 @@
 package com.test.authorizer.presentation.output;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-
 import java.time.LocalDateTime;
 
-@Data
+import org.springframework.http.HttpStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Getter
+@Setter
 public class ErrorDetailsDto {
-    private LocalDateTime timestamp;
+    private final LocalDateTime timestamp = LocalDateTime.now();
     private String message;
     private String details;
     private HttpStatus status;
-
-    public ErrorDetailsDto(HttpStatus status, String message, String details) {
-        this.timestamp = LocalDateTime.now();
-        this.message = message;
-        this.details = details;
-        this.status = status;
-    }
 }

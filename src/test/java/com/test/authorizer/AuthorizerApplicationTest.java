@@ -9,7 +9,7 @@ import com.test.authorizer.configuration.TestcontainersConfiguration;
 
 @Import(TestcontainersConfiguration.class)
 @SpringBootTest
-class AuthorizerApplicationTests {
+class AuthorizerApplicationTest {
 
 	@Test
 	void contextLoads() {

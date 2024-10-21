@@ -1,8 +1,5 @@
-<<<<<<<< HEAD:src/test/java/com/test/authorizer/config/TestcontainersConfiguration.java
-package com.test.authorizer.config;
-========
 package com.test.authorizer.configuration;
->>>>>>>> 0559e8f (test: Fix tests configuration and testcontainers visibility.):src/test/java/com/test/authorizer/configuration/TestcontainersConfiguration.java
+
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
