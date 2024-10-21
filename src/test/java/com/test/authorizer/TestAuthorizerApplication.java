@@ -2,7 +2,7 @@ package com.test.authorizer;
 
 import org.springframework.boot.SpringApplication;
 
-import com.test.authorizer.config.TestcontainersConfiguration;
+import com.test.authorizer.configuration.TestcontainersConfiguration;
 
 public class TestAuthorizerApplication {
 
