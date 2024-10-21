@@ -9,6 +9,7 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 @AnalyzeClasses(packages = "com.test.authorizer", importOptions = ImportOption.DoNotIncludeTests.class)
 class CleanArchitectureTest {
+    // TODO Describe layer boundaries
 
     static final String PRESENTATION_LAYER = "Presentation";
     static final String USE_CASE_LAYER = "UseCase";
