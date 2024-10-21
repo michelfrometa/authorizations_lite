@@ -1,7 +1,8 @@
 package com.test.authorizer.presentation.output;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,10 @@ import java.util.List;
  *
  * @param <T> the type parameter
  */
-@Data
 @Builder
 @AllArgsConstructor
+@Getter
+@Setter
 public class ResponseDto<T> {
     private boolean success;
     private T data;
