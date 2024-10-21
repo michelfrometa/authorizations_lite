@@ -1,4 +1,4 @@
-package com.test.authorizer.application.exception;
+package com.test.authorizer.presentation.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
