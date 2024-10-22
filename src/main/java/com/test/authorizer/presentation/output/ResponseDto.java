@@ -21,7 +21,15 @@ public class ResponseDto<T> {
     private T data;
     private List<String> errors;
 
-    public ResponseDto() {
-        this.errors = new ArrayList<>();
+    public ResponseDto(T data) {
+        success =  true;
+        errors = new ArrayList<>();
+        this.data = data;
+    }
+
+    public ResponseDto(T data, List<String> errors) {
+        success =  false;
+        this.errors = errors;
+        this.data = data;
     }
 }

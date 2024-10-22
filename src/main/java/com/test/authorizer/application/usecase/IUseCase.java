@@ -4,5 +4,5 @@ import com.test.authorizer.presentation.output.ResponseDto;
 
 public interface IUseCase<I,O> {
 
-    ResponseDto<O> execute(I source);
+    O execute(I source);
 }

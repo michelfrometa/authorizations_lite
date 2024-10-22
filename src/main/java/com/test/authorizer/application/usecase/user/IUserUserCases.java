@@ -4,8 +4,8 @@ import com.test.authorizer.application.input.CreateUserDto;
 import com.test.authorizer.application.input.UserDto;
 import com.test.authorizer.presentation.output.ResponseDto;
 
-public interface IUserUserCasesService {
+public interface IUserUserCases {
 
-    ResponseDto<UserDto> create(CreateUserDto dto);
+    UserDto create(CreateUserDto dto);
 
 }

@@ -7,7 +7,7 @@ import com.test.authorizer.application.input.UpdateUserDto;
 
 public interface IUserValidator {
 
-    List<String> validate(CreateUserDto dto);
+    CreateUserDto validate(CreateUserDto dto);
 
     List<String> validate(UpdateUserDto dto);
 
