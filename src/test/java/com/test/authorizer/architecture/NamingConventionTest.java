@@ -23,6 +23,13 @@ TODO Enforce this in the future
             .haveSimpleNameEndingWith("UseCase");
             */
 
+    /*@ArchTest
+static ArchRule interfacesShouldStartWithI = classes()
+        .that()
+        .areInterfaces()
+        .should()
+        .haveSimpleNameStartingWith("I");*/
+
     @ArchTest
     static ArchRule controllerShouldBeSuffixed = classes()
             .that()
