@@ -3,7 +3,10 @@ spring:
     name: authorizer
   profiles:
     active: local
-    
+  jpa:
+    hibernate:
+      ddl-auto: create
+
 server:
   servlet:
     context-path: /api

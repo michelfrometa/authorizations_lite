@@ -19,9 +19,16 @@ import java.util.List;
 public class ResponseDto<T> {
     private boolean success;
     private T data;
-    private List<String> errors;
+    private List<String> errors = new ArrayList<>();
 
-    public ResponseDto() {
-        this.errors = new ArrayList<>();
+    public ResponseDto(T data) {
+        success =  true;
+        this.data = data;
+    }
+
+    public ResponseDto(T data, List<String> errors) {
+        success =  false;
+        this.errors = errors;
+        this.data = data;
     }
 }
