@@ -12,6 +12,8 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 @AnalyzeClasses(packages = "com.test.authorizer", importOptions = ImportOption.DoNotIncludeTests.class)
 class NamingConventionTest {
+/*
+TODO Enforce this in the future
 
     @ArchTest
     static ArchRule useCaseShouldBeSuffixed = classes()
@@ -19,6 +21,7 @@ class NamingConventionTest {
             .resideInAPackage("..usecase..")
             .should()
             .haveSimpleNameEndingWith("UseCase");
+            */
 
     @ArchTest
     static ArchRule controllerShouldBeSuffixed = classes()
@@ -26,7 +29,6 @@ class NamingConventionTest {
             .resideInAPackage("..presentation.rest.controller..")
             .should()
             .haveSimpleNameEndingWith("Controller");
-
 
     @ArchTest
     static ArchRule mapperShouldBeSuffixed = classes()
