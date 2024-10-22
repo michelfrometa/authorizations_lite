@@ -19,11 +19,10 @@ import java.util.List;
 public class ResponseDto<T> {
     private boolean success;
     private T data;
-    private List<String> errors;
+    private List<String> errors = new ArrayList<>();
 
     public ResponseDto(T data) {
         success =  true;
-        errors = new ArrayList<>();
         this.data = data;
     }
 
