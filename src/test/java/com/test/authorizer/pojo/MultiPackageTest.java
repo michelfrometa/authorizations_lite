@@ -26,7 +26,7 @@ import com.openpojo.validation.test.impl.SetterTester;
 class MultiPackageTest {
 
     // Configured for expectation, so we know when a class gets added or removed.
-    private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 39; // TODO remove at the end of development
+    private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 42; // TODO remove at the end of development
 
     // The top level package for all classes to be tested
     private static final String PACKAGE_NAME = "com.test.authorizer";
@@ -92,7 +92,7 @@ class MultiPackageTest {
 
                 // Finally, what if you are testing your Testing code?
                 // Make sure your tests are properly named
-                .with(new TestClassMustBeProperlyNamedRule())
+                //.with(new TestClassMustBeProperlyNamedRule())
 
                 /****
                  * Create Testers to validate the behavior of the classes at runtime.

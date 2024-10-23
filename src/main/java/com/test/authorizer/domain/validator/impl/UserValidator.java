@@ -14,13 +14,14 @@ public class UserValidator implements IUserValidator {
 
     @Override
     public CreateUserDto validate(CreateUserDto dto) {
-        throw new InvalidEntityException("esto es una pinga");
+        // TODO: Add validation rules
+        return dto;
     }
 
     @Override
-    public List<String> validate(UpdateUserDto dto) {
-
-        return Collections.emptyList();
+    public UpdateUserDto validate(UpdateUserDto dto) {
+        // TODO: Add validation rules
+        return dto;
     }
 
 }

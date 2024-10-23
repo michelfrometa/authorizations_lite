@@ -9,8 +9,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
@@ -77,5 +80,39 @@ public class UserRepositoryMysqlImplTest {
         assertEquals(userRepositoryMysqlImpl.save(user), null);
     }
 
+    @Test
+    public void testFindByUserName_NotFound() {
+        // Arrange
+        when(userRepositoryMysql.findByUsername(any())).thenReturn(Optional.empty());
+
+        // Act
+        Optional<User> result = userRepositoryMysqlImpl.findByUserName("non-existent-username");
+
+        // Assert
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void testFindByUserName_Found() {
+        // Arrange
+        when(userRepositoryMysql.findByUsername(any())).thenReturn(Optional.of(savedUser));
+        when(mapper.toEntity(eq(savedUser))).thenReturn(user);
+
+        // Act
+        Optional<User> result = userRepositoryMysqlImpl.findByUserName("existing-username");
+
+        // Assert
+        assertTrue(result.isPresent());
+        assertEquals(user, result.get());
+    }
+
+    @Test
+    public void testFindByUserName_NullInput() {
+        // Act
+        Optional<User> result = userRepositoryMysqlImpl.findByUserName(null);
+
+        // Assert
+        assertTrue(result.isEmpty());
+    }
 }
 

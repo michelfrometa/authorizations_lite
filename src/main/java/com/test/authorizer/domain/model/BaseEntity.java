@@ -12,9 +12,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class BaseEntity {
-    private Long id;/*
+    private Long id;
 
     private Instant createdDate;
 
-    private Instant modifiedDate;*/
+    private Instant modifiedDate;
 }
