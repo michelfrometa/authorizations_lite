@@ -6,7 +6,7 @@ import com.test.authorizer.domain.validator.IUserValidator;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserValidator implements IUserValidator {
+public class IUserValidatorImpl implements IUserValidator {
 
     @Override
     public CreateUserDto validate(CreateUserDto dto) {
