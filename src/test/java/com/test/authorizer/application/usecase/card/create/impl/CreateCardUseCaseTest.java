@@ -12,6 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigInteger;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -32,13 +34,14 @@ public class CreateCardUseCaseTest {
 
     @InjectMocks
     private CreateCardUseCase createCardUseCase;
+    private final BigInteger CARD_NUMBER = new BigInteger("6549873025634501");
 
     @Test
     void execute_ValidInput_ReturnsCardDto() {
         // Arrange
-        CreateCardDto inputDto = CreateCardDto.builder().number("1234567890").password("password").build();
+        CreateCardDto inputDto = CreateCardDto.builder().number(CARD_NUMBER).password("password").build();
 
-        Card card = Card.builder().id(1L).number("1234567890").password("password").balance(500f).build();
+        Card card = Card.builder().id(1L).number(CARD_NUMBER).password("password").balance(500f).build();
         CardDto expectedOutput = new CardDto(1L, "1234567890", "password", 500f);
 
         when(validator.validate(any(CreateCardDto.class))).thenReturn(inputDto);
@@ -60,7 +63,7 @@ public class CreateCardUseCaseTest {
     @Test
     void execute_InvalidInput_ReturnsNull() {
         // Arrange
-        CreateCardDto inputDto = new CreateCardDto("", "");
+        CreateCardDto inputDto = CreateCardDto.builder().number(CARD_NUMBER).password("password").build();
 
         when(validator.validate(any(CreateCardDto.class))).thenReturn(null);
 

@@ -1,5 +1,6 @@
-package com.test.authorizer.application.input.card;
+package com.test.authorizer.application.input;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,18 +8,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
-public class CreateCardDto {
+public class TransactionDto {
+
+    private Long id;
 
     @NotBlank
-    private BigInteger number;
-
-    @NotBlank
-    private String password;
+    @JsonProperty("valor")
+    private double amount;
 }
