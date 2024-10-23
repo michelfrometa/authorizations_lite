@@ -1,4 +1,4 @@
-package com.test.authorizer.infraestructure.persistence.mysql.repository;
+package com.test.authorizer.infraestructure.persistence.mysql.repository.user;
 
 import com.test.authorizer.domain.model.User;
 import com.test.authorizer.domain.repository.IUserRepository;
