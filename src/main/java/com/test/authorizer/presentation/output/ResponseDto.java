@@ -25,10 +25,4 @@ public class ResponseDto<T> {
         success =  true;
         this.data = data;
     }
-
-    public ResponseDto(T data, List<String> errors) {
-        success =  false;
-        this.errors = errors;
-        this.data = data;
-    }
 }

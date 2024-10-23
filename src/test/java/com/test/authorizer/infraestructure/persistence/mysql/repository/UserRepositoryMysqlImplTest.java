@@ -2,6 +2,8 @@ package com.test.authorizer.infraestructure.persistence.mysql.repository;
 
 import com.test.authorizer.domain.model.User;
 import com.test.authorizer.infraestructure.persistence.mysql.mapper.IUserMySqlMapper;
+import com.test.authorizer.infraestructure.persistence.mysql.repository.user.IUserRepositoryMysql;
+import com.test.authorizer.infraestructure.persistence.mysql.repository.user.UserRepositoryMysqlImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

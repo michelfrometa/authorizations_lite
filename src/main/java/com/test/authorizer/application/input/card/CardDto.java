@@ -1,21 +1,19 @@
-package com.test.authorizer.domain.model;
+package com.test.authorizer.application.input.card;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
-public class Card extends BaseEntity {
-
+@Builder
+public class CardDto {
+    private Long id;
     private String number;
-
     private String password;
-
     private float balance;
 }

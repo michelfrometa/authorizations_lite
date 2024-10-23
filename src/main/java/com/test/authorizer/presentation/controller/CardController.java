@@ -1,8 +1,8 @@
 package com.test.authorizer.presentation.controller;
 
-import com.test.authorizer.application.input.user.CreateUserDto;
-import com.test.authorizer.application.input.user.UserDto;
-import com.test.authorizer.application.usecase.user.IUserUserCaseService;
+import com.test.authorizer.application.input.card.CardDto;
+import com.test.authorizer.application.input.card.CreateCardDto;
+import com.test.authorizer.application.usecase.card.ICardUseCaseService;
 import com.test.authorizer.presentation.output.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/cartoes")
 @RequiredArgsConstructor
-public class UserController {
+public class CardController {
 
-    private final IUserUserCaseService userCaseService;
-    
+    private final ICardUseCaseService cardUseCaseService;
+
     @PostMapping
-    public ResponseEntity<ResponseDto<UserDto>> create(@ModelAttribute CreateUserDto dto) {
+    public ResponseEntity<ResponseDto<CardDto>> saveAnalysisDocument(@ModelAttribute CreateCardDto dto) {
         return Optional.of(dto)
-                .map(userCaseService::create)
+                .map(cardUseCaseService::create)
                 .map(ResponseDto::new)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.badRequest().build());

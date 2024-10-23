@@ -3,30 +3,30 @@ package com.test.authorizer.presentation.controller;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 
-@WebMvcTest(UserController.class)
+@WebMvcTest(CardController.class)
 @AutoConfigureMockMvc
-public class UserControllerTest {
+public class CardControllerTest {/*
     /* TODO Activate this tests
 
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    private IUserUserCases userService;
+    private ICardUseCaseService userService;
 
     @Test
     @WithMockUser(username = "testuser", roles = "USER")
     public void testSaveAnalysisDocument() throws Exception {
         // Arrange
-        CreateUserDto createUserDto = CreateUserDto.builder().username("testuser").password("password").build();
-        UserDto expectedUserDto = UserDto.builder().username("testuser").password("password").build();
+        CreateCardDto createCardDto = CreateCardDto.builder().number("password").password("password").build();
+        CardDto expectedCardDto = CardDto.builder().number("password").password("password").build();
 
-        when(userService.create(any(CreateUserDto.class))).thenReturn(expectedUserDto);
+        when(userService.create(any(CreateCardDto.class))).thenReturn(expectedCardDto);
 
         // Act and Assert
         mockMvc.perform(post("/api/user")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(createUserDto)))
+                        .content(asJsonString(createCardDto)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username").value("testuser"))
                 .andExpect(jsonPath("$.password").value("password"));

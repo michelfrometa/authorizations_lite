@@ -1,9 +1,7 @@
 package com.test.authorizer.domain.validator;
 
-import java.util.List;
-
-import com.test.authorizer.application.input.CreateUserDto;
-import com.test.authorizer.application.input.UpdateUserDto;
+import com.test.authorizer.application.input.user.CreateUserDto;
+import com.test.authorizer.application.input.user.UpdateUserDto;
 
 public interface IUserValidator {
 

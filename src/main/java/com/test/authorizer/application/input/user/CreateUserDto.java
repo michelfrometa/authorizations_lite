@@ -1,4 +1,4 @@
-package com.test.authorizer.application.input;
+package com.test.authorizer.application.input.user;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -12,14 +12,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class UpdateUserDto {
+public class CreateUserDto {
 
-    @NotBlank(message = "Id cannot be blank")
-    private Long id;
-
-    private String name;
-
+    @NotBlank(message = "Username cannot be blank")
     private String username;
 
+    @NotBlank(message = "Password cannot be blank")
     private String password;
 }
