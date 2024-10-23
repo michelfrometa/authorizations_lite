@@ -3,12 +3,16 @@ package com.test.authorizer.application.usecase.card.impl;
 
 import com.test.authorizer.application.input.card.CardDto;
 import com.test.authorizer.application.input.card.CreateCardDto;
+import com.test.authorizer.application.input.card.GetCardDto;
 import com.test.authorizer.application.usecase.card.create.ICreateCardUseCase;
+import com.test.authorizer.application.usecase.card.get.IGetCardUseCase;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
@@ -17,6 +21,8 @@ import static org.mockito.Mockito.when;
 class ICardUseCaseServiceImplTest {
     @Mock
     private ICreateCardUseCase createCardUseCase;
+    @Mock
+    private IGetCardUseCase getCardUseCase;
 
     @InjectMocks
     private ICardUseCaseServiceImpl cardUseCaseService;
@@ -33,5 +39,20 @@ class ICardUseCaseServiceImplTest {
 
         // Assert
         assertEquals(expectedOutput, output);
+    }
+
+
+    @Test
+    void testFindAll() {
+        // Arrange
+        GetCardDto getCardDto = new GetCardDto();
+        List<CardDto> expectedOutput = List.of(new CardDto(), new CardDto());
+        when(getCardUseCase.execute(getCardDto)).thenReturn(expectedOutput);
+
+        // Act
+        List<CardDto> actualOutput = cardUseCaseService.findAll(getCardDto);
+
+        // Assert
+        assertEquals(expectedOutput, actualOutput);
     }
 }

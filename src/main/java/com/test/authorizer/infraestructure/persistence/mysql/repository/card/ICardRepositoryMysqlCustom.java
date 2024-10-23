@@ -2,14 +2,15 @@ package com.test.authorizer.infraestructure.persistence.mysql.repository.card;
 
 import com.test.authorizer.application.input.card.GetCardDto;
 import com.test.authorizer.infraestructure.persistence.mysql.entity.Card;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.test.authorizer.infraestructure.persistence.mysql.repository.card.dto.CardBalanceOnlyDto;
 
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
-public interface ICardRepositoryMysql extends JpaRepository<Card, Long>, ICardRepositoryMysqlCustom {
-    Optional<Card> findByNumberAndPassword(BigInteger number, String password);
+public interface ICardRepositoryMysqlCustom {
 
     List<Card> findAll(GetCardDto getCardDto);
+
+    Optional<CardBalanceOnlyDto> getCardBalanceByNumber(BigInteger number);
 }

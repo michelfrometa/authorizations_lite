@@ -1,4 +1,4 @@
-package com.test.authorizer.application.input.card;
+package com.test.authorizer.infraestructure.persistence.mysql.repository.card.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -7,22 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @Builder
-public class CardDto {
-
-    private Long id;
-
-    @JsonProperty("numeroCartao")
-    private BigInteger number;
-
-    @JsonProperty("senha")
-    private String password;
+public class CardBalanceOnlyDto {
 
     @JsonProperty("saldo")
     private double balance;

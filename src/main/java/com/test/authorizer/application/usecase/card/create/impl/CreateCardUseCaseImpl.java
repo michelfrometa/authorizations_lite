@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class CreateCardUseCase implements ICreateCardUseCase {
+public class CreateCardUseCaseImpl implements ICreateCardUseCase {
     private final ICardRepository repository;
     private final ICardMapper mapper;
     private final ICardValidator validator;
