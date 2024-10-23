@@ -1,23 +1,19 @@
 package com.test.authorizer.pojo;
 
-import java.util.List;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
 import com.openpojo.reflection.PojoClass;
 import com.openpojo.reflection.PojoClassFilter;
 import com.openpojo.reflection.impl.PojoClassFactory;
 import com.openpojo.validation.Validator;
 import com.openpojo.validation.ValidatorBuilder;
-import com.openpojo.validation.rule.impl.NoFieldShadowingRule;
 import com.openpojo.validation.rule.impl.NoPublicFieldsExceptStaticFinalRule;
 import com.openpojo.validation.rule.impl.NoStaticExceptFinalRule;
-import com.openpojo.validation.rule.impl.SerializableMustHaveSerialVersionUIDRule;
-import com.openpojo.validation.rule.impl.TestClassMustBeProperlyNamedRule;
 import com.openpojo.validation.test.impl.GetterTester;
 import com.openpojo.validation.test.impl.SetterTester;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 /**
  * Validate the structure and behavior of the Pojo classes in the package.
@@ -26,7 +22,7 @@ import com.openpojo.validation.test.impl.SetterTester;
 class MultiPackageTest {
 
     // Configured for expectation, so we know when a class gets added or removed.
-    private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 42; // TODO remove at the end of development
+    private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 64; // TODO remove at the end of development
 
     // The top level package for all classes to be tested
     private static final String PACKAGE_NAME = "com.test.authorizer";
