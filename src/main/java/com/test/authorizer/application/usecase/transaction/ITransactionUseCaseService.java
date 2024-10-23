@@ -1,7 +1,7 @@
 package com.test.authorizer.application.usecase.transaction;
 
-import com.test.authorizer.application.input.CreateTransactionDto;
-import com.test.authorizer.application.input.TransactionDto;
+import com.test.authorizer.application.input.transaction.CreateTransactionDto;
+import com.test.authorizer.application.input.transaction.TransactionDto;
 
 public interface ITransactionUseCaseService {
 

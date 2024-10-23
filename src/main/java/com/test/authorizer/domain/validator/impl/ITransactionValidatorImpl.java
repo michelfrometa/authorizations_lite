@@ -1,6 +1,6 @@
 package com.test.authorizer.domain.validator.impl;
 
-import com.test.authorizer.application.input.CreateTransactionDto;
+import com.test.authorizer.application.input.transaction.CreateTransactionDto;
 import com.test.authorizer.domain.validator.ITransactionValidator;
 import org.springframework.stereotype.Service;
 
