@@ -1,7 +1,7 @@
 package com.test.authorizer.application.usecase.user.create.impl;
 
-import com.test.authorizer.application.input.CreateUserDto;
-import com.test.authorizer.application.input.UserDto;
+import com.test.authorizer.application.input.user.CreateUserDto;
+import com.test.authorizer.application.input.user.UserDto;
 import com.test.authorizer.application.usecase.user.mapper.IUserMapper;
 import com.test.authorizer.domain.model.User;
 import com.test.authorizer.domain.repository.IUserRepository;
@@ -40,7 +40,7 @@ public class CreateUserUseCaseTest {
     @BeforeEach
     public void setup() {
         inputDto = CreateUserDto.builder().name("name").username("username").password("password").build();
-        user = User.builder().username("username").password("password").build();
+        user = User.builder().id(1L).username("username").password("password").build();
         outputDto = UserDto.builder().id(1L).name("name").username("username").password("password").build();
     }
 
