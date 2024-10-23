@@ -2,7 +2,7 @@ package com.test.authorizer.presentation.controller;
 
 import com.test.authorizer.application.input.user.CreateUserDto;
 import com.test.authorizer.application.input.user.UserDto;
-import com.test.authorizer.application.usecase.user.IUserUserCaseService;
+import com.test.authorizer.application.usecase.user.IUserUseCaseService;
 import com.test.authorizer.presentation.output.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final IUserUserCaseService userCaseService;
+    private final IUserUseCaseService userCaseService;
     
     @PostMapping
     public ResponseEntity<ResponseDto<UserDto>> create(@ModelAttribute CreateUserDto dto) {
