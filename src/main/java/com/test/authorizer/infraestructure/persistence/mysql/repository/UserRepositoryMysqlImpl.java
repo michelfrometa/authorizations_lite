@@ -14,6 +14,12 @@ public class UserRepositoryMysqlImpl implements IUserRepository {
     private final IUserRepositoryMysql userRepositoryMysql;
     private final IUserMySqlMapper mapper;
 
+    /**
+     * Saves a user to the database.
+     *
+     * @param user the user to save
+     * @return the saved user if successful, otherwise null
+     */
     @Override
     public User save(User user) {
         return Optional.of(user)
@@ -23,6 +29,12 @@ public class UserRepositoryMysqlImpl implements IUserRepository {
                 .orElse(null);
     }
 
+    /**
+     * Finds a user by their username.
+     *
+     * @param username the username to search for
+     * @return an optional containing the user if found, otherwise an empty optional
+     */
     @Override
     public Optional<User> findByUserName(String username) {
         return userRepositoryMysql.findByUsername(username)

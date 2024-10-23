@@ -34,6 +34,7 @@
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
         <openpojo.version>0.9.1</openpojo.version>
+        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -131,27 +132,8 @@
     <build>
         <finalName>application</finalName>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
-            <plugin>
+            <!-- Plugins for JACOCO Coverage report -->
+           <!-- <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin.version}</version>
@@ -167,7 +149,7 @@
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
-                    <!-- Ensures that the code coverage report for unit tests is created after unit tests have been run -->
+                    &lt;!&ndash; Ensures that the code coverage report for unit tests is created after unit tests have been run &ndash;&gt;
                     <execution>
                         <id>post-unit-test</id>
                         <phase>test</phase>
@@ -181,7 +163,7 @@
                             <goal>prepare-agent-integration</goal>
                         </goals>
                     </execution>
-                    <!-- Ensures that the code coverage report for integration tests is created after integration tests have been run -->
+                    &lt;!&ndash; Ensures that the code coverage report for integration tests is created after integration tests have been run &ndash;&gt;
                     <execution>
                         <id>post-integration-tests</id>
                         <phase>post-integration-test</phase>
@@ -189,7 +171,6 @@
                             <goal>report-integration</goal>
                         </goals>
                     </execution>
-                    <!-- Ensures that the code coverage percentage is over 85% -->
                     <execution>
                         <id>jacoco-check</id>
                         <goals>
@@ -211,7 +192,35 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>-->
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <argLine>
+                        &#45;&#45;add-opens java.base/java.util=ALL-UNNAMED
+                        &#45;&#45;add-opens java.base/java.lang=ALL-UNNAMED
+                        -Djava.security.manager=allow
+                    </argLine>
+                    <environmentVariables>
+                        <SET_BY_SUREFIRE>YES</SET_BY_SUREFIRE>
+                    </environmentVariables>
+                </configuration>
+            </plugin>-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

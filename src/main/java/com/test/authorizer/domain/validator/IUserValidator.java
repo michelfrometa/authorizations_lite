@@ -9,6 +9,6 @@ public interface IUserValidator {
 
     CreateUserDto validate(CreateUserDto dto);
 
-    List<String> validate(UpdateUserDto dto);
+    UpdateUserDto validate(UpdateUserDto dto);
 
 }
