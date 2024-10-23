@@ -21,7 +21,7 @@ public class UserUserCasesImplTest {
     private ICreateUserUseCase createUserUseCase;
 
     @InjectMocks
-    private UserUserCasesImpl userUserCasesImpl;
+    private UserUserCaseServiceImpl userUserCasesImpl;
 
     private CreateUserDto createUserDto;
 

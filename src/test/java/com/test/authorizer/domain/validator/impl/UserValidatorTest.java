@@ -55,7 +55,7 @@ public class UserValidatorTest {
     @Test
     void testValidate_UpdateUserDto_InvalidInput_ReturnsNull() {
         // Arrange
-        UpdateUserDto updateUserDto = new UpdateUserDto(1L, "password");
+        UpdateUserDto updateUserDto = UpdateUserDto.builder().build();
 
         // Act
         UpdateUserDto result = userValidator.validate(updateUserDto);
