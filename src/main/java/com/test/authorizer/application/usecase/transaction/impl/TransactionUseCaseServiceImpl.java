@@ -1,7 +1,7 @@
 package com.test.authorizer.application.usecase.transaction.impl;
 
-import com.test.authorizer.application.input.CreateTransactionDto;
-import com.test.authorizer.application.input.TransactionDto;
+import com.test.authorizer.application.input.transaction.CreateTransactionDto;
+import com.test.authorizer.application.input.transaction.TransactionDto;
 import com.test.authorizer.application.usecase.transaction.ITransactionUseCaseService;
 import com.test.authorizer.application.usecase.transaction.create.ICreateTransactionUseCase;
 import lombok.RequiredArgsConstructor;

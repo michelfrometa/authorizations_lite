@@ -1,7 +1,7 @@
 package com.test.authorizer.application.usecase.transaction.mapper;
 
-import com.test.authorizer.application.input.CreateTransactionDto;
-import com.test.authorizer.application.input.TransactionDto;
+import com.test.authorizer.application.input.transaction.CreateTransactionDto;
+import com.test.authorizer.application.input.transaction.TransactionDto;
 import com.test.authorizer.application.mapper.GeneratedMapper;
 import com.test.authorizer.application.mapper.IEntityMapper;
 import com.test.authorizer.domain.model.Transaction;

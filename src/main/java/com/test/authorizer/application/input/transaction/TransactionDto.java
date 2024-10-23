@@ -1,4 +1,4 @@
-package com.test.authorizer.application.input;
+package com.test.authorizer.application.input.transaction;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
