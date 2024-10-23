@@ -23,7 +23,8 @@ class ICardValidatorImplTest {
 
     @Test
     void validate_validInput_returnsSameInput() {
-        // Fixme Implement othe tests
+        // Fixme Implement other tests
+
         // Arrange
         BigInteger expectedNumber = new BigInteger("6549873025634501");
         String expectedPassword = "password";

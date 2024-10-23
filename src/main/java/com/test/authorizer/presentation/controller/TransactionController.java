@@ -21,7 +21,7 @@ public class TransactionController {
     private final ITransactionUseCaseService iTransactionUseCaseService;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<TransactionDto>> saveAnalysisDocument(@ModelAttribute CreateTransactionDto createTransactionDto) {
+    public ResponseEntity<ResponseDto<TransactionDto>> create(@ModelAttribute CreateTransactionDto createTransactionDto) {
         return Optional.of(createTransactionDto)
                 .map(iTransactionUseCaseService::create)
                 .map(ResponseDto::new)

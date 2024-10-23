@@ -32,17 +32,18 @@ public class CreateCardUseCaseTest {
     @Mock
     private ICardValidator validator;
 
-    @InjectMocks
-    private CreateCardUseCase createCardUseCase;
+    private final String PASSWORD = "PASSWORD";
     private final BigInteger CARD_NUMBER = new BigInteger("6549873025634501");
+    @InjectMocks
+    private CreateCardUseCaseImpl CreateCardUseCaseImpl;
 
     @Test
     void execute_ValidInput_ReturnsCardDto() {
         // Arrange
-        CreateCardDto inputDto = CreateCardDto.builder().number(CARD_NUMBER).password("password").build();
+        CreateCardDto inputDto = CreateCardDto.builder().number(CARD_NUMBER).password(PASSWORD).build();
 
-        Card card = Card.builder().id(1L).number(CARD_NUMBER).password("password").balance(500f).build();
-        CardDto expectedOutput = new CardDto(1L, "1234567890", "password", 500f);
+        Card card = Card.builder().id(1L).number(CARD_NUMBER).password(PASSWORD).balance(500f).build();
+        CardDto expectedOutput = new CardDto(1L, CARD_NUMBER, PASSWORD, 500f);
 
         when(validator.validate(any(CreateCardDto.class))).thenReturn(inputDto);
         when(mapper.toEntity(inputDto)).thenReturn(card);
@@ -50,7 +51,7 @@ public class CreateCardUseCaseTest {
         when(mapper.toDto(card)).thenReturn(expectedOutput);
 
         // Act
-        CardDto output = createCardUseCase.execute(inputDto);
+        CardDto output = CreateCardUseCaseImpl.execute(inputDto);
 
         // Assert
         assertEquals(expectedOutput, output);
@@ -63,12 +64,12 @@ public class CreateCardUseCaseTest {
     @Test
     void execute_InvalidInput_ReturnsNull() {
         // Arrange
-        CreateCardDto inputDto = CreateCardDto.builder().number(CARD_NUMBER).password("password").build();
+        CreateCardDto inputDto = CreateCardDto.builder().number(CARD_NUMBER).password(PASSWORD).build();
 
         when(validator.validate(any(CreateCardDto.class))).thenReturn(null);
 
         // Act
-        CardDto output = createCardUseCase.execute(inputDto);
+        CardDto output = CreateCardUseCaseImpl.execute(inputDto);
 
         // Assert
         assertNull(output);
