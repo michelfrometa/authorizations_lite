@@ -6,6 +6,7 @@ import com.test.authorizer.infraestructure.persistence.mysql.mapper.ICardMySqlMa
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.Optional;
 
 @Component
@@ -21,5 +22,11 @@ public class ICardRepositoryImpl implements ICardRepository {
                 .map(iCardRepositoryMysql::save)
                 .map(mapper::toEntity)
                 .orElse(null);
+    }
+
+    @Override
+    public Optional<Card> findByNumberAndPassword(BigInteger number, String password) {
+        return iCardRepositoryMysql.findByNumberAndPassword(number, password)
+                .map(mapper::toEntity);
     }
 }

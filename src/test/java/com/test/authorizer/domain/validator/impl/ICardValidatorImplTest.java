@@ -7,6 +7,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigInteger;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -23,7 +25,7 @@ class ICardValidatorImplTest {
     void validate_validInput_returnsSameInput() {
         // Fixme Implement othe tests
         // Arrange
-        String expectedNumber = "1234567890";
+        BigInteger expectedNumber = new BigInteger("6549873025634501");
         String expectedPassword = "password";
         when(createCardDto.getNumber()).thenReturn(expectedNumber);
         when(createCardDto.getPassword()).thenReturn(expectedPassword);

@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
+import java.math.BigInteger;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,9 +16,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class Card extends BaseEntity {
 
-    private String number;
+    private BigInteger number;
 
     private String password;
 
-    private float balance;
+    private double balance;
+
+    private List<Transaction> transactions;
 }

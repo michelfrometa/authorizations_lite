@@ -1,16 +1,23 @@
 package com.test.authorizer.infraestructure.persistence.mysql.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigInteger;
+import java.util.List;
 
 @Entity
 @Table(name = "cards")
 @Getter
 @Setter
 public class Card extends BaseEntity {
-    private String number;
+    private BigInteger number;
     private String password;
     private float balance;
+
+    @OneToMany(mappedBy = "card")
+    private List<Transaction> transactions;
 }
