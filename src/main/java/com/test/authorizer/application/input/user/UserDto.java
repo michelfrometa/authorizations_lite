@@ -1,4 +1,4 @@
-package com.test.authorizer.application.input;
+package com.test.authorizer.application.input.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,5 +16,4 @@ public class UserDto {
     private String name;
     private String username;
     private String password;
-
 }

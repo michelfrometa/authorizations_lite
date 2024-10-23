@@ -39,7 +39,7 @@ public class CreateUserUseCaseTest {
 
     @BeforeEach
     public void setup() {
-        inputDto = CreateUserDto.builder().name("name").username("username").password("password").build();
+        inputDto = CreateUserDto.builder().username("username").password("password").build();
         user = User.builder().id(1L).username("username").password("password").build();
         outputDto = UserDto.builder().id(1L).name("name").username("username").password("password").build();
     }

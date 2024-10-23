@@ -1,7 +1,7 @@
 package com.test.authorizer.application.usecase.user.impl;
 
-import com.test.authorizer.application.input.CreateUserDto;
-import com.test.authorizer.application.input.UserDto;
+import com.test.authorizer.application.input.user.CreateUserDto;
+import com.test.authorizer.application.input.user.UserDto;
 import com.test.authorizer.application.usecase.user.create.ICreateUserUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

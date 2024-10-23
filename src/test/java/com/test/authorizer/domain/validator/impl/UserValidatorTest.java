@@ -31,7 +31,7 @@ public class UserValidatorTest {
     @Test
     void testValidate_CreateUserDto_InvalidInput_ReturnsNull() {
         // Arrange
-        CreateUserDto createUserDto = new CreateUserDto(null, "password");
+        CreateUserDto createUserDto = CreateUserDto.builder().username(null).password("password").build();
 
         // Act
         CreateUserDto result = userValidator.validate(createUserDto);
