@@ -1,4 +1,4 @@
-package com.test.authorizer.application.input;
+package com.test.authorizer.application.input.user;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -16,10 +16,6 @@ public class UpdateUserDto {
 
     @NotBlank(message = "Id cannot be blank")
     private Long id;
-
-    private String name;
-
-    private String username;
 
     private String password;
 }
