@@ -23,6 +23,8 @@ import java.util.List;
 @AllArgsConstructor
 @SuperBuilder
 public class Card extends BaseEntity {
+
+    // TODO UNIQUE
     private BigInteger number;
     private String password;
     private float balance;
