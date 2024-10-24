@@ -22,7 +22,7 @@ import java.util.List;
 class MultiPackageTest {
 
     // Configured for expectation, so we know when a class gets added or removed.
-    private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 107; // TODO remove at the end of development
+    private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 109; // TODO remove at the end of development
 
     // The top level package for all classes to be tested
     private static final String PACKAGE_NAME = "com.test.authorizer";

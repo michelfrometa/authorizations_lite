@@ -12,4 +12,6 @@ public interface ICardRepositoryMysql extends JpaRepository<Card, Long>, ICardRe
     Optional<Card> findByNumberAndPassword(BigInteger number, String password);
 
     List<Card> findAll(GetCardDto getCardDto);
+
+    Optional<Card> findByNumber(BigInteger number);
 }

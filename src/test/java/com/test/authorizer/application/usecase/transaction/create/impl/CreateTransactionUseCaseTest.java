@@ -7,7 +7,7 @@ import com.test.authorizer.domain.model.Card;
 import com.test.authorizer.domain.model.Transaction;
 import com.test.authorizer.domain.repository.ICardRepository;
 import com.test.authorizer.domain.repository.ITransactionRepository;
-import com.test.authorizer.domain.validator.ITransactionValidator;
+import com.test.authorizer.domain.validator.transaction.ITransactionValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -46,14 +46,15 @@ public class CreateTransactionUseCaseTest {
         // Arrange
         CreateTransactionDto createTransactionDto = CreateTransactionDto.builder().cardNumber(CARD_NUMBER).cardPassword(CARD_PASSWORD).amount(AMOUNT).build();
         Card card = Card.builder().number(CARD_NUMBER).password(CARD_PASSWORD).balance(100.0F).build();
+        Optional<Card> optionalCard = Optional.of(card);
         Transaction transaction = Transaction.builder().card(card).amount(AMOUNT).build();
         TransactionDto transactionDto = TransactionDto.builder().id(ID).amount(AMOUNT).build();
 
-        when(iCardRepository.findByNumberAndPassword(any(), any())).thenReturn(Optional.of(card));
+        when(iCardRepository.findByNumber(any())).thenReturn(optionalCard);
         when(iTransactionMapper.toEntity(eq(createTransactionDto))).thenReturn(transaction);
         when(iTransactionRepository.save(eq(transaction))).thenReturn(transaction);
         when(iCardRepository.save(any())).thenReturn(card);
-        when(iTransactionValidator.validate(eq(createTransactionDto))).thenReturn(createTransactionDto);
+        when(iTransactionValidator.validate(eq(createTransactionDto), eq(optionalCard))).thenReturn(card);
         when(iTransactionMapper.toDto(eq(transaction))).thenReturn(transactionDto);
 
         // Act

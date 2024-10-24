@@ -2,6 +2,7 @@ package com.test.authorizer.domain.validator.impl;
 
 import com.test.authorizer.application.input.user.CreateUserDto;
 import com.test.authorizer.application.input.user.UpdateUserDto;
+import com.test.authorizer.domain.validator.user.impl.IUserValidatorImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

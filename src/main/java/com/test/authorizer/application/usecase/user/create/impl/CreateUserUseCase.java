@@ -5,7 +5,7 @@ import com.test.authorizer.application.input.user.UserDto;
 import com.test.authorizer.application.usecase.user.create.ICreateUserUseCase;
 import com.test.authorizer.application.usecase.user.mapper.IUserMapper;
 import com.test.authorizer.domain.repository.IUserRepository;
-import com.test.authorizer.domain.validator.IUserValidator;
+import com.test.authorizer.domain.validator.user.IUserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

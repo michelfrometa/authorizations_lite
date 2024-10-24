@@ -5,7 +5,7 @@ import com.test.authorizer.application.input.card.CreateCardDto;
 import com.test.authorizer.application.usecase.card.create.ICreateCardUseCase;
 import com.test.authorizer.application.usecase.card.mapper.ICardMapper;
 import com.test.authorizer.domain.repository.ICardRepository;
-import com.test.authorizer.domain.validator.ICardValidator;
+import com.test.authorizer.domain.validator.card.ICardValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

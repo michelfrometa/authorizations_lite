@@ -35,6 +35,12 @@ public class ICardRepositoryImpl implements ICardRepository {
     }
 
     @Override
+    public Optional<Card> findByNumber(BigInteger number) {
+        return iCardRepositoryMysql.findByNumber(number)
+                .map(mapper::toEntity);
+    }
+
+    @Override
     public List<Card> findAll(GetCardDto getCardDto) {
         return iCardRepositoryMysql.findAll(getCardDto).stream()
                 .map(mapper::toEntity)
