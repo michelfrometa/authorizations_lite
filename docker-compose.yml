@@ -24,7 +24,7 @@ services:
     env_file:
       - .env.docker
     networks:
-      - springboot-mysql-network
+      - test-authorizer-springboot-mysql-network
 
   test-authorizer-mysql:
     image: mysql:5.7
@@ -52,8 +52,8 @@ services:
 #volumes:
 #  mysql-data:
 networks:
-  springboot-mysql-network:
-    name: springboot-mysql-network      
+  test-authorizer-springboot-mysql-network:
+    name: test-authorizer-springboot-mysql-network
     driver: bridge
 
   # mongo:
