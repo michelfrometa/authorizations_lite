@@ -8,6 +8,5 @@ public interface IUserRepository {
 
     User save(User user);
 
-    Optional<User> findByUserName(String username);
-
+    Optional<User> findByUsername(String username);
 }

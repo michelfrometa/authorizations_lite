@@ -26,6 +26,6 @@ public class UserController {
                 .map(userCaseService::create)
                 .map(ResponseDto::new)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.badRequest().build());
+                .orElse(null);
     }
 }

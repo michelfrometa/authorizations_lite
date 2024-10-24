@@ -1,7 +1,7 @@
 package com.test.authorizer.infraestructure.configuration;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
+import com.test.authorizer.infraestructure.security.UserDetailsServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,9 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.test.authorizer.infraestructure.security.UserDetailsServiceImpl;
-
-import lombok.RequiredArgsConstructor;
+import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
@@ -31,8 +29,6 @@ public class SecurityConfiguration {
         http.cors(withDefaults()).csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(
                         requests -> requests
-                        .requestMatchers("/login/**").permitAll()
-                        .requestMatchers("/user/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults());

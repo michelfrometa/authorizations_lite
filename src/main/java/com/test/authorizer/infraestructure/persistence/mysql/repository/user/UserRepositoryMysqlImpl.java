@@ -36,7 +36,7 @@ public class UserRepositoryMysqlImpl implements IUserRepository {
      * @return an optional containing the user if found, otherwise an empty optional
      */
     @Override
-    public Optional<User> findByUserName(String username) {
+    public Optional<User> findByUsername(String username) {
         return userRepositoryMysql.findByUsername(username)
                 .map(mapper::toEntity);
     }

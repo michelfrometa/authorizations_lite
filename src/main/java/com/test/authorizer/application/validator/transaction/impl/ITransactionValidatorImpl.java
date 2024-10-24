@@ -19,6 +19,7 @@ public class ITransactionValidatorImpl implements ITransactionValidator {
     public Card validate(CreateTransactionDto dto, Optional<Card> optionalCard) {
         return optionalCard
                 .map(card -> {
+
                     if (dto.getAmount() > optionalCard.get().getBalance())
                         throw new InvalidEntityException(INSUFFICIENT_BALANCE);
 

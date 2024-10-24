@@ -3,3 +3,10 @@ spring:
     name: authorizer
   profiles:
     active: local
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+  sql:
+    init:
+      mode: always

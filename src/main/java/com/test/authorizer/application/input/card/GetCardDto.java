@@ -23,5 +23,5 @@ public class GetCardDto {
     private String password;
 
     @JsonProperty("saldo")
-    private double balance;
+    private Double balance;
 }

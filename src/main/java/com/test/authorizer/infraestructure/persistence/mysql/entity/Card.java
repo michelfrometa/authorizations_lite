@@ -1,6 +1,7 @@
 package com.test.authorizer.infraestructure.persistence.mysql.entity;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -24,9 +25,11 @@ import java.util.List;
 @SuperBuilder
 public class Card extends BaseEntity {
 
-    // TODO UNIQUE
+    @Column(unique = true)
     private BigInteger number;
+
     private String password;
+
     private float balance;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "card")

@@ -83,25 +83,25 @@ public class UserRepositoryMysqlImplTest {
     }
 
     @Test
-    public void testFindByUserName_NotFound() {
+    public void testFindByUsername_NotFound() {
         // Arrange
         when(userRepositoryMysql.findByUsername(any())).thenReturn(Optional.empty());
 
         // Act
-        Optional<User> result = userRepositoryMysqlImpl.findByUserName("non-existent-username");
+        Optional<User> result = userRepositoryMysqlImpl.findByUsername("non-existent-username");
 
         // Assert
         assertTrue(result.isEmpty());
     }
 
     @Test
-    public void testFindByUserName_Found() {
+    public void testFindByUsername_Found() {
         // Arrange
         when(userRepositoryMysql.findByUsername(any())).thenReturn(Optional.of(savedUser));
         when(mapper.toEntity(eq(savedUser))).thenReturn(user);
 
         // Act
-        Optional<User> result = userRepositoryMysqlImpl.findByUserName("existing-username");
+        Optional<User> result = userRepositoryMysqlImpl.findByUsername("existing-username");
 
         // Assert
         assertTrue(result.isPresent());
@@ -109,9 +109,9 @@ public class UserRepositoryMysqlImplTest {
     }
 
     @Test
-    public void testFindByUserName_NullInput() {
+    public void testFindByUsername_NullInput() {
         // Act
-        Optional<User> result = userRepositoryMysqlImpl.findByUserName(null);
+        Optional<User> result = userRepositoryMysqlImpl.findByUsername(null);
 
         // Assert
         assertTrue(result.isEmpty());

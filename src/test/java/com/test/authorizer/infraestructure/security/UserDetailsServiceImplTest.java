@@ -29,7 +29,7 @@ public class UserDetailsServiceImplTest {
         // Arrange
         String username = "testuser";
         User user = User.builder().username(username).password("password").build();
-        when(userRepository.findByUserName(username)).thenReturn(Optional.of(user));
+        when(userRepository.findByUsername(username)).thenReturn(Optional.of(user));
 
         // Act
         UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(username);
@@ -43,7 +43,7 @@ public class UserDetailsServiceImplTest {
     void testUserNotFound() {
         // Arrange
         String username = "invaliduser";
-        when(userRepository.findByUserName(username)).thenReturn(Optional.empty());
+        when(userRepository.findByUsername(username)).thenReturn(Optional.empty());
 
         // Act and Assert
         UsernameNotFoundException exception = assertThrows(UsernameNotFoundException.class, () -> userDetailsServiceImpl.loadUserByUsername(username));
