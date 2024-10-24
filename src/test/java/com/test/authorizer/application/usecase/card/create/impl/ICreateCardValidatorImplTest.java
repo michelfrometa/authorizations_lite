@@ -1,12 +1,10 @@
 package com.test.authorizer.application.usecase.card.create.impl;
 
 import com.test.authorizer.application.input.card.CreateCardDto;
-import com.test.authorizer.domain.repository.ICardRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigInteger;
@@ -20,8 +18,7 @@ public class ICreateCardValidatorImplTest {
 
     private final BigInteger CARD_NUMBER = new BigInteger("6549873025634501");
     private final String CARD_PASSWORD = "PASSWORD";
-    @Mock
-    private ICardRepository iCardRepository;
+
     @InjectMocks
     private ICreateCardValidatorImpl iCreateCardValidator;
     private CreateCardDto createCardDto;
