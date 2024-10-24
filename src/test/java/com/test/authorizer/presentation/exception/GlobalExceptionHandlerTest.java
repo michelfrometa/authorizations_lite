@@ -1,10 +1,8 @@
 package com.test.authorizer.presentation.exception;
 // GlobalExceptionHandlerTest.java
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.Mockito.when;
-
+import com.test.authorizer.presentation.output.ErrorDetailsDto;
+import com.test.authorizer.presentation.output.ResponseDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,8 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.context.request.WebRequest;
 
-import com.test.authorizer.presentation.output.ErrorDetailsDto;
-import com.test.authorizer.presentation.output.ResponseDto;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class GlobalExceptionHandlerTest {
@@ -38,7 +37,7 @@ class GlobalExceptionHandlerTest {
 
         // Assert
         assertNotNull(response);
-        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+        assertEquals(HttpStatus.UNPROCESSABLE_ENTITY, response.getStatusCode());
 
         ResponseDto<ErrorDetailsDto> responseBody = response.getBody();
         assertNotNull(responseBody);

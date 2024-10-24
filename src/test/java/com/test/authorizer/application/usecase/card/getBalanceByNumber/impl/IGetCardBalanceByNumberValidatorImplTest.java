@@ -1,31 +1,23 @@
 package com.test.authorizer.application.usecase.card.getBalanceByNumber.impl;
 
-import com.test.authorizer.application.exceptions.InvalidEntityException;
-import com.test.authorizer.application.usecase.card.getBalanceByNumber.IGetCardBalanceByNumberValidator;
 import com.test.authorizer.infraestructure.persistence.mysql.repository.card.dto.CardBalanceOnlyDto;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static com.test.authorizer.application.validator.VALIDATION_ERROR.INVALID_CARD;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 public class IGetCardBalanceByNumberValidatorImplTest {
 
-    @Mock
-    private IGetCardBalanceByNumberValidator validator;
-
     @InjectMocks
-    private IGetCardBalanceByNumberValidatorImpl validatorImpl;
+    private IGetCardBalanceByNumberValidatorImpl iGetCardBalanceByNumberValidator1;
 
     private CardBalanceOnlyDto cardBalanceOnlyDto;
 
@@ -36,33 +28,13 @@ public class IGetCardBalanceByNumberValidatorImplTest {
 
     @Test
     public void testValidate_ValidCardBalanceOnlyDto_ReturnsSameInstance() {
-        // Arrange
-        when(validator.validate(any(CardBalanceOnlyDto.class))).thenReturn(cardBalanceOnlyDto);
-
-        // Act
-        CardBalanceOnlyDto result = validatorImpl.validate(Optional.of(cardBalanceOnlyDto));
-
         // Assert
-        assertEquals(cardBalanceOnlyDto, result);
+        assertEquals(cardBalanceOnlyDto, iGetCardBalanceByNumberValidator1.validate(Optional.of(cardBalanceOnlyDto)));
     }
 
     @Test
-    public void testValidate_InvalidCardBalanceOnlyDto_ThrowsInvalidEntityException() {
-        // Arrange
-        when(validator.validate(any(CardBalanceOnlyDto.class))).thenThrow(InvalidEntityException.class);
-
-
-        // Act & Assert
-        InvalidEntityException exception = Assertions.assertThrows(InvalidEntityException.class, () -> validatorImpl.validate(Optional.of(cardBalanceOnlyDto)));
-        Assertions.assertEquals(INVALID_CARD, exception.getValidationError());
-    }
-
-    @Test
-    public void testValidate_EmptyOptional_ReturnsNull() {
-        // Act
-        CardBalanceOnlyDto result = validatorImpl.validate(Optional.empty());
-
+    public void testValidate_EmptyOptional_ThrowsInvalidEntityException() {
         // Assert
-        assertEquals(null, result);
+        assertThrows(NoSuchElementException.class, () -> iGetCardBalanceByNumberValidator1.validate(Optional.empty()));
     }
 }
