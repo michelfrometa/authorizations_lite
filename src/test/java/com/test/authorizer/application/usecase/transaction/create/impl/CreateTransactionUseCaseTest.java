@@ -52,6 +52,7 @@ public class CreateTransactionUseCaseTest {
         when(iCardRepository.findByNumberAndPassword(any(), any())).thenReturn(Optional.of(card));
         when(iTransactionMapper.toEntity(eq(createTransactionDto))).thenReturn(transaction);
         when(iTransactionRepository.save(eq(transaction))).thenReturn(transaction);
+        when(iCardRepository.save(any())).thenReturn(card);
         when(iTransactionValidator.validate(eq(createTransactionDto))).thenReturn(createTransactionDto);
         when(iTransactionMapper.toDto(eq(transaction))).thenReturn(transactionDto);
 
