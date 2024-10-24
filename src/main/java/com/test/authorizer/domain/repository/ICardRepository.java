@@ -14,6 +14,8 @@ public interface ICardRepository {
 
     Optional<Card> findByNumberAndPassword(BigInteger number, String password);
 
+    Optional<Card> findByNumber(BigInteger number);
+
     List<Card> findAll(GetCardDto getCardDto);
 
     Optional<CardBalanceOnlyDto> getCardBalanceByNumber(BigInteger number);

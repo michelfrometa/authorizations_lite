@@ -1,6 +1,7 @@
 package com.test.authorizer.domain.validator.impl;
 
 import com.test.authorizer.application.input.card.CreateCardDto;
+import com.test.authorizer.domain.validator.card.impl.ICardValidatorImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
