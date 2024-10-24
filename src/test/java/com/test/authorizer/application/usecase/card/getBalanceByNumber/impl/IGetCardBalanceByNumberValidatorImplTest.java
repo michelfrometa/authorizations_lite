@@ -3,9 +3,9 @@ package com.test.authorizer.application.usecase.card.getBalanceByNumber.impl;
 import com.test.authorizer.application.exceptions.InvalidEntityException;
 import com.test.authorizer.application.usecase.card.getBalanceByNumber.IGetCardBalanceByNumberValidator;
 import com.test.authorizer.infraestructure.persistence.mysql.repository.card.dto.CardBalanceOnlyDto;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -29,7 +29,7 @@ public class IGetCardBalanceByNumberValidatorImplTest {
 
     private CardBalanceOnlyDto cardBalanceOnlyDto;
 
-    @Before
+    @BeforeEach
     public void setup() {
         cardBalanceOnlyDto = new CardBalanceOnlyDto();
     }

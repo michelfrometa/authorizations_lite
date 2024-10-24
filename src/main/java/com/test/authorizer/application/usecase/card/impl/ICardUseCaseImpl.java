@@ -2,6 +2,7 @@ package com.test.authorizer.application.usecase.card.impl;
 
 import com.test.authorizer.application.input.card.CardBalanceOnlyDto;
 import com.test.authorizer.application.input.card.CardDto;
+import com.test.authorizer.application.input.card.CardNumberOnlyDto;
 import com.test.authorizer.application.input.card.CreateCardDto;
 import com.test.authorizer.application.input.card.GetCardDto;
 import com.test.authorizer.application.usecase.card.ICardUseCase;
@@ -31,7 +32,7 @@ public class ICardUseCaseImpl implements ICardUseCase {
     }
 
     @Override
-    public CardBalanceOnlyDto getBalanceByCardNumber(GetCardDto getCardDto) {
+    public CardBalanceOnlyDto getBalanceByCardNumber(CardNumberOnlyDto getCardDto) {
         return getBalanceByCardNumberUseCase.execute(getCardDto);
     }
 }

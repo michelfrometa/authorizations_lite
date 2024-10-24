@@ -2,6 +2,7 @@ package com.test.authorizer.application.usecase.card;
 
 import com.test.authorizer.application.input.card.CardBalanceOnlyDto;
 import com.test.authorizer.application.input.card.CardDto;
+import com.test.authorizer.application.input.card.CardNumberOnlyDto;
 import com.test.authorizer.application.input.card.CreateCardDto;
 import com.test.authorizer.application.input.card.GetCardDto;
 
@@ -31,6 +32,6 @@ public interface ICardUseCase {
      * @param getCardDto the data transfer object containing the card number
      * @return the card with the given card number
      */
-    CardBalanceOnlyDto getBalanceByCardNumber(GetCardDto getCardDto);
+    CardBalanceOnlyDto getBalanceByCardNumber(CardNumberOnlyDto getCardDto);
 }
 

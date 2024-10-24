@@ -1,5 +1,4 @@
 package com.test.authorizer.application.usecase.card.get.impl;
-// GetCardUseCaseImplTest.java
 
 import com.test.authorizer.application.input.card.CardDto;
 import com.test.authorizer.application.input.card.GetCardDto;
