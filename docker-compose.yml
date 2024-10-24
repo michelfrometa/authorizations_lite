@@ -1,14 +1,14 @@
 version: "3.7"
 
 services:
-  application:
+  test-authorizer-application:
     image: 'test-authorizer-spring-boot-mysql:latest'
     build:
       context: .
       dockerfile: Dockerfile
     container_name: application
     depends_on:
-      mysql:
+      test-authorizer-mysql:
         condition: service_healthy
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -26,7 +26,7 @@ services:
     networks:
       - springboot-mysql-network
 
-  mysql:
+  test-authorizer-mysql:
     image: mysql:5.7
     hostname: mysql
     container_name: mysql

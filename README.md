@@ -2,7 +2,7 @@
 
 git clone project
 
-cd authorizer
+cd into project folder
 
 docker-compose up
 
