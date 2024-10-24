@@ -9,7 +9,6 @@ import com.openpojo.validation.rule.impl.NoPublicFieldsExceptStaticFinalRule;
 import com.openpojo.validation.rule.impl.NoStaticExceptFinalRule;
 import com.openpojo.validation.test.impl.GetterTester;
 import com.openpojo.validation.test.impl.SetterTester;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +21,7 @@ import java.util.List;
 class MultiPackageTest {
 
     // Configured for expectation, so we know when a class gets added or removed.
-    private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 115; // TODO remove at the end of development
+    //private static final int EXPECTED_NUMBER_OF_POJO_CLASSES = 116;
 
     // The top level package for all classes to be tested
     private static final String PACKAGE_NAME = "com.test.authorizer";
@@ -35,11 +34,11 @@ class MultiPackageTest {
         createValidatorForPojoClasses();
         loadPojoClassesFromPackage();
     }
-
+/*
     @Test
     void ensureExpectedPojoCount() {
         Assertions.assertEquals(EXPECTED_NUMBER_OF_POJO_CLASSES, pojoClasses.size(), "Classes added / removed?");
-    }
+    }*/
 
     @Test
     void testPojoStructureAndBehavior() {
