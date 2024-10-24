@@ -1,3 +1,13 @@
+# How to run
+
+git clone project
+
+cd authorizer
+
+docker-compose up
+
+http://localhost:8080/swagger-ui/index.html
+
 #  Architectural Patterns Selection
 
 The architectural options considered for the project were:
