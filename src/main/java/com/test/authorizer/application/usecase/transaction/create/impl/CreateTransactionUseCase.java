@@ -33,9 +33,27 @@ public class CreateTransactionUseCase implements ICreateTransactionUseCase {
                 .orElse(null);
     }
 
+    /**
+     * Create a transaction, given a valid card.
+     * <p>
+     * First, it looks for a card given a card number and password. If found, it adds the transaction amount to the card balance.
+     * Then, it maps the given {@link CreateTransactionDto} to a {@link Transaction} and adds it to the found card.
+     * <p>
+     *
+     * @param createTransactionDto the data transfer object to create a transaction.
+     * @return an {@link Optional} of a {@link Transaction}, if the card is found; otherwise, an empty {@link Optional}.
+     */
     private Optional<Transaction> createTransaction(CreateTransactionDto createTransactionDto) {
         return iCardRepository.findByNumberAndPassword(createTransactionDto.getCardNumber(), createTransactionDto.getCardPassword())
-                .map(card -> card.setBalance(card.getBalance() + createTransactionDto.getAmount()))
+                .map(card -> card.setBalance(card.getBalance() - createTransactionDto.getAmount()))
+                .map(iCardRepository::save)
                 .map(card -> iTransactionMapper.toEntity(createTransactionDto).setCard(card));
     }
+/*
+    private Optional<Transaction> createTransaction(CreateTransactionDto createTransactionDto) {
+        return iCardRepository.findByNumberAndPassword(createTransactionDto.getCardNumber(), createTransactionDto.getCardPassword())
+                .map(card -> card.setBalance(card.getBalance() - createTransactionDto.getAmount()))
+                .map(card -> iTransactionMapper.toEntity(createTransactionDto).setCard(card))
+                .map(iTransactionRepository::save);
+    }*/
 }

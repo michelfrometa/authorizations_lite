@@ -5,4 +5,6 @@ import com.test.authorizer.domain.model.Transaction;
 public interface ITransactionRepository {
 
     Transaction save(Transaction card);
+
+    Transaction saveAndFlush(Transaction transaction);
 }

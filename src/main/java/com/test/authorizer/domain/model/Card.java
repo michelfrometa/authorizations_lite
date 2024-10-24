@@ -23,4 +23,7 @@ public class Card extends BaseEntity {
     private double balance;
 
     private List<Transaction> transactions;
+
+    private User user;
+
 }

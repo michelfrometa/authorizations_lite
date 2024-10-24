@@ -9,6 +9,6 @@ import org.mapstruct.ReportingPolicy;
 
 @AnnotateWith(GeneratedMapper.class)
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
-public interface IUserMySqlMapper extends IEntityPersistenceModelMapper<com.test.authorizer.domain.model.User, User> {
+public interface IUserMySqlMapper extends IDomainModelPersistenceModelMapper<com.test.authorizer.domain.model.User, User> {
 
 }

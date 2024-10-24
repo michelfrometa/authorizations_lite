@@ -1,12 +1,11 @@
 package com.test.authorizer.infraestructure.persistence.mysql.mapper;
 
-import java.util.List;
-
 import org.mapstruct.BeanMapping;
-import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import org.mapstruct.NullValuePropertyMappingStrategy;
+
+import java.util.List;
 
 /**
  * Contract for an entity to a persistence model mapper.
@@ -14,7 +13,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
  * @param <E> - Entity type parameter.
  * @param <P> - Persistence Model type parameter.
  */
-public interface IEntityPersistenceModelMapper<E, P> {// FIXME extending beans are not being loaded
+public interface IDomainModelPersistenceModelMapper<E, P> {// FIXME extending beans are not being loaded
     P toPersistenceModel(E entity);
 
     E toEntity(P persistenceModel);

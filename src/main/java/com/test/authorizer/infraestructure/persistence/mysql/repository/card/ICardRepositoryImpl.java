@@ -45,4 +45,13 @@ public class ICardRepositoryImpl implements ICardRepository {
     public Optional<CardBalanceOnlyDto> getCardBalanceByNumber(BigInteger number) {
         return iCardRepositoryMysql.getCardBalanceByNumber(number);
     }
+
+    @Override
+    public Card saveAndFlush(Card card) {
+        return Optional.of(card)
+                .map(mapper::toPersistenceModel)
+                .map(iCardRepositoryMysql::saveAndFlush)
+                .map(mapper::toEntity)
+                .orElse(null);
+    }
 }

@@ -17,8 +17,19 @@ public class ITransactionRepositoryImpl implements ITransactionRepository {
     @Override
     public Transaction save(Transaction transaction) {
         return Optional.of(transaction)
+                //.map(iTransactionMySqlMapper::toPersistenceModelTricked)
                 .map(iTransactionMySqlMapper::toPersistenceModel)
                 .map(iTransactionRepositoryMysql::save)
+                .map(iTransactionMySqlMapper::toEntity)
+                .orElse(null);
+    }
+
+    @Override
+    public Transaction saveAndFlush(Transaction transaction) {
+        return Optional.of(transaction)
+                //.map(iTransactionMySqlMapper::toPersistenceModelTricked)
+                .map(iTransactionMySqlMapper::toPersistenceModel)
+                .map(iTransactionRepositoryMysql::saveAndFlush)
                 .map(iTransactionMySqlMapper::toEntity)
                 .orElse(null);
     }

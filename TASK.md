@@ -122,9 +122,9 @@ Method: POST
 URL: http://localhost:8080/transacoes
 Body (json):
 {
-    "numeroCartao": "6549873025634501",
-    "senhaCartao": "1234",
-    "valor": 10.00
+"numeroCartao": "6549873025634501",
+"senhaCartao": "1234",
+"valor": 10.00
 }
 Autenticação: BASIC, com login = username e senha = password
 ```

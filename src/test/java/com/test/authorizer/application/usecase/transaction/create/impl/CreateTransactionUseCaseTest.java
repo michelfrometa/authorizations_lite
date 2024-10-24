@@ -1,5 +1,3 @@
-// src/test/java/com/test/authorizer/application/usecase/transaction/create/impl/CreateTransactionUseCaseTest.java
-
 package com.test.authorizer.application.usecase.transaction.create.impl;
 
 import com.test.authorizer.application.input.transaction.CreateTransactionDto;
@@ -54,6 +52,7 @@ public class CreateTransactionUseCaseTest {
         when(iCardRepository.findByNumberAndPassword(any(), any())).thenReturn(Optional.of(card));
         when(iTransactionMapper.toEntity(eq(createTransactionDto))).thenReturn(transaction);
         when(iTransactionRepository.save(eq(transaction))).thenReturn(transaction);
+        when(iCardRepository.save(any())).thenReturn(card);
         when(iTransactionValidator.validate(eq(createTransactionDto))).thenReturn(createTransactionDto);
         when(iTransactionMapper.toDto(eq(transaction))).thenReturn(transactionDto);
 
