@@ -7,7 +7,7 @@ import com.test.authorizer.application.input.card.GetCardDto;
 
 import java.util.List;
 
-public interface ICardUseCaseService {
+public interface ICardUseCase {
 
     /**
      * Creates a new card and returns it.
@@ -31,6 +31,6 @@ public interface ICardUseCaseService {
      * @param getCardDto the data transfer object containing the card number
      * @return the card with the given card number
      */
-    CardBalanceOnlyDto getByNumber(GetCardDto getCardDto);
+    CardBalanceOnlyDto getBalanceByCardNumber(GetCardDto getCardDto);
 }
 

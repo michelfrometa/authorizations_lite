@@ -60,4 +60,9 @@ public class ICardRepositoryImpl implements ICardRepository {
                 .map(mapper::toEntity)
                 .orElse(null);
     }
+
+    @Override
+    public boolean existsByNumberAndPassword(BigInteger number, String password) {
+        return iCardRepositoryMysql.existsByNumberAndPassword(number, password);
+    }
 }

@@ -21,4 +21,6 @@ public interface ICardRepository {
     Optional<CardBalanceOnlyDto> getCardBalanceByNumber(BigInteger number);
 
     Card saveAndFlush(Card card);
+
+    boolean existsByNumberAndPassword(BigInteger number, String password);
 }

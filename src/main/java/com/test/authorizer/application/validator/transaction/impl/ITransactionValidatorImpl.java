@@ -1,16 +1,16 @@
-package com.test.authorizer.domain.validator.transaction.impl;
+package com.test.authorizer.application.validator.transaction.impl;
 
 import com.test.authorizer.application.exceptions.InvalidEntityException;
 import com.test.authorizer.application.input.transaction.CreateTransactionDto;
+import com.test.authorizer.application.validator.transaction.ITransactionValidator;
 import com.test.authorizer.domain.model.Card;
-import com.test.authorizer.domain.validator.transaction.ITransactionValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import static com.test.authorizer.domain.validator.VALIDATION_ERROR.INSUFFICIENT_BALANCE;
-import static com.test.authorizer.domain.validator.VALIDATION_ERROR.INVALID_CARD;
-import static com.test.authorizer.domain.validator.VALIDATION_ERROR.INVALID_PASSWORD;
+import static com.test.authorizer.application.validator.VALIDATION_ERROR.INSUFFICIENT_BALANCE;
+import static com.test.authorizer.application.validator.VALIDATION_ERROR.INVALID_CARD;
+import static com.test.authorizer.application.validator.VALIDATION_ERROR.INVALID_PASSWORD;
 
 @Service
 public class ITransactionValidatorImpl implements ITransactionValidator {
