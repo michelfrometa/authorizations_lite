@@ -1,4 +1,4 @@
-package com.test.authorizer.domain.validator;
+package com.test.authorizer.application.validator;
 
 public interface IValidator<T> {
     /**

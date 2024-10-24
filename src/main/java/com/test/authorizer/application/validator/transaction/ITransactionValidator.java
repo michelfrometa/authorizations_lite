@@ -1,8 +1,8 @@
-package com.test.authorizer.domain.validator.transaction;
+package com.test.authorizer.application.validator.transaction;
 
 import com.test.authorizer.application.input.transaction.CreateTransactionDto;
+import com.test.authorizer.application.validator.IValidator;
 import com.test.authorizer.domain.model.Card;
-import com.test.authorizer.domain.validator.IValidator;
 
 import java.util.Optional;
 

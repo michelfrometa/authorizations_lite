@@ -5,7 +5,7 @@ import com.test.authorizer.application.input.card.CardBalanceOnlyDto;
 import com.test.authorizer.application.input.card.CardDto;
 import com.test.authorizer.application.input.card.CreateCardDto;
 import com.test.authorizer.application.input.card.GetCardDto;
-import com.test.authorizer.application.usecase.card.ICardUseCaseService;
+import com.test.authorizer.application.usecase.card.ICardUseCase;
 import com.test.authorizer.presentation.output.ResponseDto;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +27,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class CardController {
 
-    private final ICardUseCaseService iCardUseCaseService;
+    private final ICardUseCase iCardUseCase;
 
     @GetMapping
     public ResponseEntity<ResponseDto<List<CardDto>>> get(
@@ -36,7 +36,7 @@ public class CardController {
             @RequestParam(required = false) @JsonProperty("saldo") double balance) {
 
         return Optional.of(GetCardDto.builder().number(cardNumber).password(cardPassword).balance(balance).build())
-                .map(iCardUseCaseService::findAll)
+                .map(iCardUseCase::findAll)
                 .map(ResponseDto::new)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.badRequest().build());
@@ -44,11 +44,11 @@ public class CardController {
 
     @GetMapping("/{number}")
     // TODO Endpoint NOT Restfull
-    public ResponseEntity<ResponseDto<Double>> getByCardNumber(
+    public ResponseEntity<ResponseDto<Double>> getBalanceByCardNumber(
             @PathVariable @NotEmpty(message = "Numero de cartao requerido") BigInteger number) {
 
         return Optional.of(GetCardDto.builder().number(number).build())
-                .map(iCardUseCaseService::getByNumber)
+                .map(iCardUseCase::getBalanceByCardNumber)
                 .map(CardBalanceOnlyDto::getBalance)
                 .map(ResponseDto::new)
                 .map(ResponseEntity::ok)
@@ -58,7 +58,7 @@ public class CardController {
     @PostMapping
     public ResponseEntity<ResponseDto<CardDto>> create(@ModelAttribute CreateCardDto dto) {
         return Optional.of(dto)
-                .map(iCardUseCaseService::create)
+                .map(iCardUseCase::create)
                 .map(ResponseDto::new)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.badRequest().build());

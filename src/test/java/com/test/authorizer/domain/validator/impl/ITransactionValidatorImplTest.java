@@ -2,9 +2,9 @@ package com.test.authorizer.domain.validator.impl;
 
 import com.test.authorizer.application.exceptions.InvalidEntityException;
 import com.test.authorizer.application.input.transaction.CreateTransactionDto;
+import com.test.authorizer.application.validator.transaction.impl.ITransactionValidatorImpl;
 import com.test.authorizer.domain.model.Card;
 import com.test.authorizer.domain.repository.ICardRepository;
-import com.test.authorizer.domain.validator.transaction.impl.ITransactionValidatorImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -14,9 +14,9 @@ import org.mockito.MockitoAnnotations;
 import java.math.BigInteger;
 import java.util.Optional;
 
-import static com.test.authorizer.domain.validator.VALIDATION_ERROR.INSUFFICIENT_BALANCE;
-import static com.test.authorizer.domain.validator.VALIDATION_ERROR.INVALID_CARD;
-import static com.test.authorizer.domain.validator.VALIDATION_ERROR.INVALID_PASSWORD;
+import static com.test.authorizer.application.validator.VALIDATION_ERROR.INSUFFICIENT_BALANCE;
+import static com.test.authorizer.application.validator.VALIDATION_ERROR.INVALID_CARD;
+import static com.test.authorizer.application.validator.VALIDATION_ERROR.INVALID_PASSWORD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;

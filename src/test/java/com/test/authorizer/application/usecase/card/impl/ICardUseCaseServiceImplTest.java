@@ -25,7 +25,7 @@ class ICardUseCaseServiceImplTest {
     private IGetCardUseCase getCardUseCase;
 
     @InjectMocks
-    private ICardUseCaseServiceImpl cardUseCaseService;
+    private ICardUseCaseImpl cardUseCaseService;
 
     @Test
     void testCreate() {

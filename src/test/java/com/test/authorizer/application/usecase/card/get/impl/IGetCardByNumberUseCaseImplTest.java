@@ -1,6 +1,7 @@
 package com.test.authorizer.application.usecase.card.get.impl;
 
 import com.test.authorizer.application.input.card.GetCardDto;
+import com.test.authorizer.application.usecase.card.getBalanceByNumber.impl.IGetBalanceByCardNumberUseCaseImpl;
 import com.test.authorizer.domain.repository.ICardRepository;
 import com.test.authorizer.infraestructure.persistence.mysql.repository.card.dto.CardBalanceOnlyDto;
 import org.junit.Before;
@@ -24,7 +25,7 @@ public class IGetCardByNumberUseCaseImplTest {
     private ICardRepository repository;
 
     @InjectMocks
-    private IGetCardByNumberUseCaseImpl getCardByNumberUseCase;
+    private IGetBalanceByCardNumberUseCaseImpl getCardByNumberUseCase;
 
     private GetCardDto getCardDto;
 

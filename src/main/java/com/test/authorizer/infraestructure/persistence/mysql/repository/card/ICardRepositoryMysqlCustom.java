@@ -13,4 +13,6 @@ public interface ICardRepositoryMysqlCustom {
     List<Card> findAll(GetCardDto getCardDto);
 
     Optional<CardBalanceOnlyDto> getCardBalanceByNumber(BigInteger number);
+
+    boolean existsByNumberAndPassword(BigInteger number, String password);
 }

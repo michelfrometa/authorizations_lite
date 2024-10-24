@@ -1,6 +1,6 @@
 package com.test.authorizer.application.exceptions;
 
-import com.test.authorizer.domain.validator.VALIDATION_ERROR;
+import com.test.authorizer.application.validator.VALIDATION_ERROR;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

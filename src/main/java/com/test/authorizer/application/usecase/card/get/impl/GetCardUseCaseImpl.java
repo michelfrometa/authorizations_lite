@@ -14,14 +14,16 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class GetCardUseCaseImpl implements IGetCardUseCase {
-    private final ICardRepository repository;
-    private final ICardMapper mapper;
+    private final ICardRepository iCardRepository;
+    private final ICardMapper iCardMapper;
+    //private final IGetCardValidator iGetCardValidator;
 
     @Override
     public List<CardDto> execute(GetCardDto inputDto) {
         return Optional.of(inputDto)
-                .map(repository::findAll)
-                .map(mapper::toDto)
+                //.map(iGetCardValidator::validate) Fixme Nullpointer Exception
+                .map(iCardRepository::findAll)
+                .map(iCardMapper::toDto)
                 .orElse(null);
     }
 }
