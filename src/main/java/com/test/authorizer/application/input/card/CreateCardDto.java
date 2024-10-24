@@ -2,6 +2,7 @@ package com.test.authorizer.application.input.card;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,7 +18,7 @@ import java.math.BigInteger;
 @Builder
 public class CreateCardDto {
 
-    @NotBlank
+    @NotNull
     @JsonProperty("numeroCartao")
     private BigInteger number;
 

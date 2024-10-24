@@ -18,4 +18,5 @@ public interface ICardRepository {
 
     Optional<CardBalanceOnlyDto> getCardBalanceByNumber(BigInteger number);
 
+    Card saveAndFlush(Card card);
 }

@@ -1,5 +1,3 @@
-// src/test/java/com/test/authorizer/application/usecase/transaction/create/impl/CreateTransactionUseCaseTest.java
-
 package com.test.authorizer.application.usecase.transaction.create.impl;
 
 import com.test.authorizer.application.input.transaction.CreateTransactionDto;
