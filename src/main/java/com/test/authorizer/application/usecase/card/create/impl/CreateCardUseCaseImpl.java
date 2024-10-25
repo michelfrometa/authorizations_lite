@@ -28,7 +28,7 @@ public class CreateCardUseCaseImpl implements ICreateCardUseCase {
         return Optional.of(inputDto)
                 .map(target -> iCreateCardValidator.validate(target, iCardRepository.existsByNumberAndPassword(target.getNumber(), target.getPassword())))
                 .map(iCardMapper::toEntity)
-                .map(card -> card.setBalance(500))
+                .map(card -> card.setBalance(500D))
                 .map(this::setUser)
                 .map(iCardRepository::save)
                 .map(iCardMapper::toDto)
@@ -46,10 +46,11 @@ public class CreateCardUseCaseImpl implements ICreateCardUseCase {
      * @see ICreateCardUseCase
      */
     private Card setUser(Card card) {
-        return Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication().getPrincipal())
+        Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication().getPrincipal())
                 .map(User.class::cast)
                 .flatMap(user -> iUserRepository.findByUsername(user.getUsername()))
-                .map(card::setUser)
-                .orElse(card);
+                .ifPresent(card::setUser);
+
+        return card;
     }
 }

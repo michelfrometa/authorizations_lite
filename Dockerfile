@@ -16,6 +16,12 @@ FROM amazoncorretto:21-alpine-jdk
 # Install curl and maven
 RUN apk --no-cache add curl maven
 
+# Set environment variables
+ENV DB_HOST=${DB_HOST}
+ENV DB_NAME=${DB_NAME}
+ENV DB_USER=${DB_USER}
+ENV DB_PASS=${DB_PASS}
+
 # Expose port 8080
 EXPOSE 8080
 

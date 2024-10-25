@@ -30,7 +30,7 @@ public class Card extends BaseEntity {
 
     private String password;
 
-    private float balance;
+    private double balance;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "card")
     private List<Transaction> transactions; // fixme Mudar las relaciones con List para Set
