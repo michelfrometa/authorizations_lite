@@ -27,8 +27,8 @@ public class SecurityConfiguration {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.cors(withDefaults()).csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(
-                        requests -> requests
+                .authorizeHttpRequests(requests -> requests
+                        .requestMatchers("/swagger-/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults());

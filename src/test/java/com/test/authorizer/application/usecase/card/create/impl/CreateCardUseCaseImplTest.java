@@ -100,7 +100,6 @@ import com.test.authorizer.application.input.card.CreateCardDto;
 import com.test.authorizer.application.usecase.card.create.ICreateCardValidator;
 import com.test.authorizer.application.usecase.card.mapper.ICardMapper;
 import com.test.authorizer.domain.model.Card;
-import com.test.authorizer.domain.model.User;
 import com.test.authorizer.domain.repository.ICardRepository;
 import com.test.authorizer.domain.repository.IUserRepository;
 import org.junit.jupiter.api.Test;
@@ -111,6 +110,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.math.BigInteger;

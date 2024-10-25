@@ -6,11 +6,11 @@ import com.test.authorizer.application.usecase.card.create.ICreateCardUseCase;
 import com.test.authorizer.application.usecase.card.create.ICreateCardValidator;
 import com.test.authorizer.application.usecase.card.mapper.ICardMapper;
 import com.test.authorizer.domain.model.Card;
-import com.test.authorizer.domain.model.User;
 import com.test.authorizer.domain.repository.ICardRepository;
 import com.test.authorizer.domain.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
