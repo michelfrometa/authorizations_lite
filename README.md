@@ -8,6 +8,8 @@ docker-compose up
 
 http://localhost:8080/swagger-ui/index.html
 
+Any user/pass e username:password
+
 #  Architectural Patterns Selection
 
 The architectural options considered for the project were:
